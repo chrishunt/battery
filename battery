@@ -2,7 +2,7 @@
 
 echo_usage ()
 {
-  echo 'usage: battery [Charging | Discharging]'
+  echo 'usage: battery [charging | discharging]'
 }
 
 linux_get_bat ()
@@ -35,12 +35,12 @@ battery_status()
       STATUS=`sysctl -n hw.acpi.battery.state`
 
       case $1 in
-        "Discharging")
+        "discharging")
           if [ $STATUS -eq 1 ]; then
             freebsd_get_bat
           fi
           ;;
-        "Charging")
+        "charging")
           if [ $STATUS -eq 2 ]; then
             freebsd_get_bat
           fi
@@ -52,9 +52,9 @@ battery_status()
       ;;
     "Darwin")
       case $1 in
-        "Discharging")
+        "discharging")
           ext="No";;
-        "Charging")
+        "charging")
           ext="Yes";;
       esac
 
@@ -88,9 +88,9 @@ battery_status()
 }
 
 case $1 in
-  "Discharging")
+  "discharging")
     ext="No";;
-  "Charging")
+  "charging")
     ext="Yes";;
   "")
     echo_usage && exit
