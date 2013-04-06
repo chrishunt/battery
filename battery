@@ -1,5 +1,10 @@
 #!/bin/sh
 
+echo_usage ()
+{
+  echo 'usage: battery [Charging | Discharging]'
+}
+
 linux_get_bat ()
 {
   bf=$(cat $BAT_FULL)
@@ -81,6 +86,16 @@ battery_status()
         done
   esac
 }
+
+case $1 in
+  "Discharging")
+    ext="No";;
+  "Charging")
+    ext="Yes";;
+  "")
+    echo_usage && exit
+    ;;
+esac
 
 BATTERY_STATUS=`battery_status $1`
 [ -z "$BATTERY_STATUS" ] && exit
