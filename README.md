@@ -1,6 +1,7 @@
 Battery
-------
+-------
 
 Usage:
 
-    battery Discharging; battery Charging
+    $ battery Discharging
+    $ battery Charging
